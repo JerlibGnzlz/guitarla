@@ -1,19 +1,22 @@
-import { useState } from "react"
-import { Guitar } from "./Guitar"
-import { Header } from "./components/Header"
-import { db } from "./data/db"
+import { useState } from "react";
+import { Guitar } from "./Guitar";
+import { Header } from "./components/Header";
+import { db } from "./data/db";
 
 
-function App () {
-  const [data, setData] = useState(db)
+function App() {
+  const [data, setData] = useState(db);
 
 
+  const [cart, setCart] = useState([]);
 
+  function addTocart(item) {
+    setCart([...cart, item]);
+  }
 
   return (
     <>
       <Header />
-
       <main className="container-xl mt-5">
         <h2 className="text-center">Nuestra Colección</h2>
 
@@ -23,6 +26,8 @@ function App () {
               <Guitar
                 key={guitar.id}
                 guitar={guitar}
+                setCart={setCart}
+                addTocart={addTocart}
               />
             </>
           ))}
@@ -36,7 +41,7 @@ function App () {
         </div>
       </footer>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
