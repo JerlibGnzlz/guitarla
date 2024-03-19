@@ -6,12 +6,21 @@ import { db } from "./data/db";
 
 function App() {
   const [data, setData] = useState(db);
-
-
   const [cart, setCart] = useState([]);
 
   function addTocart(item) {
-    setCart([...cart, item]);
+
+    const itemExist = cart.findIndex(guitar => guitar.id === item.id);
+
+    if (itemExist >= 0) {
+      console.log("ya existe");
+    } else {
+      item.quantity = 1;
+      setCart([...cart, item]);
+
+    }
+
+
   }
 
   return (
