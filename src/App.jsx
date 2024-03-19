@@ -18,9 +18,12 @@ function App () {
         <h2 className="text-center">Nuestra Colección</h2>
 
         <div className="row mt-5">
-          {db.map(() => (
+          {db.map((guitar) => (
             <>
-              <Guitar />
+              <Guitar
+                key={guitar.id}
+                guitar={guitar}
+              />
             </>
           ))}
         </div>
