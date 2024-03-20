@@ -4,11 +4,11 @@ import { Header } from "./components/Header";
 import { db } from "./data/db";
 
 
-function App() {
+function App () {
   const [data, setData] = useState(db);
   const [cart, setCart] = useState([]);
 
-  function addTocart(item) {
+  function addTocart (item) {
 
     const itemExist = cart.findIndex(guitar => guitar.id === item.id);
 
@@ -27,7 +27,9 @@ function App() {
 
   return (
     <>
-      <Header />
+      <Header
+        cart={cart}
+      />
       <main className="container-xl mt-5">
         <h2 className="text-center">Nuestra Colección</h2>
 
