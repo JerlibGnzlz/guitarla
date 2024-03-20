@@ -21,14 +21,17 @@ function App () {
       setCart([...cart, item]);
 
     }
+  }
 
-
+  function removeFronCart (id) {
+    setCart(cart => cart.filter(guitar => guitar.id !== id))
   }
 
   return (
     <>
       <Header
         cart={cart}
+        removeFronCart={removeFronCart}
       />
       <main className="container-xl mt-5">
         <h2 className="text-center">Nuestra Colección</h2>

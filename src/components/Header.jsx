@@ -2,7 +2,7 @@
 
 import { useMemo } from "react"
 
-export const Header = ({ cart }) => {
+export const Header = ({ cart, removeFronCart }) => {
 
     //State derivado
     const isEmpty = useMemo(() => cart.length === 0, [cart])
@@ -71,6 +71,7 @@ export const Header = ({ cart }) => {
                                                             <button
                                                                 className="btn btn-danger"
                                                                 type="button"
+                                                                onClick={() => removeFronCart(guitar.id)}
                                                             >
                                                                 X
                                                             </button>
